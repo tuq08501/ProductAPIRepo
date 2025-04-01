@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "ef69c38e-89c5-495f-a593-522fe9c7304b",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43665386",
+		"_collection_link": "https://tameemamamun.postman.co/workspace/Tameema-Mamun's-Workspace~70f17d7b-880e-41df-85eb-2a8ca32dfdfc/collection/43665386-ef69c38e-89c5-495f-a593-522fe9c7304b?action=share&source=collection_link&creator=43665386"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Product 1 Id is 1\", () => {pm.expect(jsonData[0].Id).to.equal(1);});\r",
+							"pm.test(\"Product 1 Name is Tomato Soup\", () => {pm.expect(jsonData[0].Name).to.equal(\"Tomato Soup\");});\r",
+							"pm.test(\"Product 1 Category is Groceries\", () => {pm.expect(jsonData[0].Category).to.equal(\"Groceries\");});\r",
+							"pm.test(\"Product 1 Price is 1.0\", () => {pm.expect(jsonData[0].Price).to.equal(1.0);});\r",
+							"\r",
+							"pm.test(\"Product 2 Id is 2\", () => {pm.expect(jsonData[1].Id).to.equal(2);});\r",
+							"pm.test(\"Product 2 Name is Yo-yo\", () => {pm.expect(jsonData[1].Name).to.equal(\"Yo-yo\");});\r",
+							"pm.test(\"Product 2 Category is Toys\", () => {pm.expect(jsonData[1].Category).to.equal(\"Toys\");});\r",
+							"pm.test(\"Product 2 Price is 3.75\", () => {pm.expect(jsonData[1].Price).to.equal(3.75);});\r",
+							"\r",
+							"pm.test(\"Product 3 Id is 3\", () => {pm.expect(jsonData[2].Id).to.equal(3);});\r",
+							"pm.test(\"Product 3 Name is Hammer\", () => {pm.expect(jsonData[2].Name).to.equal(\"Hammer\");});\r",
+							"pm.test(\"Product 3 Category is Hardware\", () => {pm.expect(jsonData[2].Category).to.equal(\"Hardware\");});\r",
+							"pm.test(\"Product 3 Price is 16.99\", () => {pm.expect(jsonData[2].Price).to.equal(16.99);});\r",
+							"\r",
+							"pm.test(\"Status code is 200 OK\", () => {pm.response.to.have.status(200);});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44326/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44326",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Product Id is 2\", () => {pm.expect(jsonData.Id).to.equal(2);});\r",
+							"pm.test(\"Product Name is Yo-yo\", () => {pm.expect(jsonData.Name).to.equal(\"Yo-yo\");});\r",
+							"pm.test(\"Product Category is Toys\", () => {pm.expect(jsonData.Category).to.equal(\"Toys\");});\r",
+							"pm.test(\"Product Price is 3.75\", () => {pm.expect(jsonData.Price).to.equal(3.75);});\r",
+							"\r",
+							"pm.test(\"Status code is 200 OK\", () => {pm.response.to.have.status(200);});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44326/api/products/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44326",
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
